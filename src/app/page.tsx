@@ -1,44 +1,55 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { Book, FileText, HelpCircle, MessageCircle, Music, Users, Video, Accessibility, Search, ChevronLeft, ChevronRight, Home } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useState, useEffect } from "react";
+import {
+  Book,
+  FileText,
+  HelpCircle,
+  MessageCircle,
+  Music,
+  Users,
+  Video,
+  Search,
+  ChevronLeft,
+  ChevronRight,
+  Home,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import Image from "next/image"
-import Link from "next/link"
+} from "@/components/ui/select";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Component() {
-  const [currentPage, setCurrentPage] = useState(1)
-  const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0)
-  const itemsPerPage = 9
-  const totalItems = 10
+  const [currentPage, setCurrentPage] = useState(1);
+  const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0);
+  const itemsPerPage = 9;
+  const totalItems = 10;
 
-  const carouselImages = [
-    "/colecao3.png",
-    "/colecao1.png",
-    "/colecao2.png",
-  ]
+  const carouselImages = ["/colecao3.png", "/colecao1.png", "/colecao2.png"];
 
-  const featuredImages = [
-    "/dominio1.jpg",
-    "/dominio2.jpg",
-    "/dominio3.jpg",
-  ]
+  const featuredImages = ["/dominio1.jpg", "/dominio2.jpg", "/dominio3.jpg"];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentCarouselIndex((prevIndex) => (prevIndex + 1) % carouselImages.length)
-    }, 50000)
-    return () => clearInterval(timer)
-  }, [])
+      setCurrentCarouselIndex(
+        (prevIndex) => (prevIndex + 1) % carouselImages.length
+      );
+    }, 50000);
+    return () => clearInterval(timer);
+  }, [carouselImages.length]);
 
   const destaques = [
     { icon: Book, text: "Machado de Assis: obra completa" },
@@ -51,20 +62,25 @@ export default function Component() {
     { icon: Book, text: "A Divina Comédia em português" },
     { icon: FileText, text: "Publicações sobre educação" },
     { icon: Book, text: "Obras de Joaquim Nabuco" },
-  ]
+  ];
 
-  const totalPages = Math.ceil(totalItems / itemsPerPage)
-  const startIndex = (currentPage - 1) * itemsPerPage
-  const endIndex = startIndex + itemsPerPage
-  const currentItems = destaques.slice(startIndex, endIndex)
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = destaques.slice(startIndex, endIndex);
 
   const nextSlide = () => {
-    setCurrentCarouselIndex((prevIndex) => (prevIndex + 1) % carouselImages.length)
-  }
+    setCurrentCarouselIndex(
+      (prevIndex) => (prevIndex + 1) % carouselImages.length
+    );
+  };
 
   const prevSlide = () => {
-    setCurrentCarouselIndex((prevIndex) => (prevIndex - 1 + carouselImages.length) % carouselImages.length)
-  }
+    setCurrentCarouselIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + carouselImages.length) % carouselImages.length
+    );
+  };
 
   return (
     <div className="min-h-screen bg-[#f5f5f5] relative">
@@ -74,13 +90,18 @@ export default function Component() {
           <div className="flex items-center justify-between mb-4">
             <div>
               <h1 className="text-2xl font-bold">Domínio Público</h1>
-              <p className="text-sm">Biblioteca digital desenvolvida em software livre</p>
+              <p className="text-sm">
+                Biblioteca digital desenvolvida em software livre
+              </p>
             </div>
             <nav className="hidden md:flex gap-6 text-sm">
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Link href="#" className="hover:underline flex items-center gap-1">
+                    <Link
+                      href="#"
+                      className="hover:underline flex items-center gap-1"
+                    >
                       <Home className="h-4 w-4" />
                       Início
                     </Link>
@@ -93,7 +114,10 @@ export default function Component() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Link href="#" className="hover:underline flex items-center gap-1">
+                    <Link
+                      href="#"
+                      className="hover:underline flex items-center gap-1"
+                    >
                       <FileText className="h-4 w-4" />
                       Missão
                     </Link>
@@ -106,7 +130,10 @@ export default function Component() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Link href="#" className="hover:underline flex items-center gap-1">
+                    <Link
+                      href="#"
+                      className="hover:underline flex items-center gap-1"
+                    >
                       <Book className="h-4 w-4" />
                       Política do Acervo
                     </Link>
@@ -119,7 +146,10 @@ export default function Component() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Link href="#" className="hover:underline flex items-center gap-1">
+                    <Link
+                      href="#"
+                      className="hover:underline flex items-center gap-1"
+                    >
                       <FileText className="h-4 w-4" />
                       Estatísticas
                     </Link>
@@ -132,7 +162,10 @@ export default function Component() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Link href="#" className="hover:underline flex items-center gap-1">
+                    <Link
+                      href="#"
+                      className="hover:underline flex items-center gap-1"
+                    >
                       <MessageCircle className="h-4 w-4" />
                       Fale Conosco
                     </Link>
@@ -145,7 +178,10 @@ export default function Component() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Link href="#" className="hover:underline flex items-center gap-1">
+                    <Link
+                      href="#"
+                      className="hover:underline flex items-center gap-1"
+                    >
                       <Users className="h-4 w-4" />
                       Quero Colaborar
                     </Link>
@@ -158,7 +194,10 @@ export default function Component() {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Link href="#" className="hover:underline flex items-center gap-1">
+                    <Link
+                      href="#"
+                      className="hover:underline flex items-center gap-1"
+                    >
                       <HelpCircle className="h-4 w-4" />
                       Ajuda
                     </Link>
@@ -186,8 +225,10 @@ export default function Component() {
               {/* <p className="text-sm text-red-500 mb-2">* Campo Obrigatório</p> */}
               <form className="space-y-4">
                 <div className="space-y-4">
-                  <label htmlFor="media-type" className="text-sm font-medium">Tipo de Mídia *</label>
-                  <Select>
+                  <label htmlFor="media-type" className="text-sm font-medium">
+                    Tipo de Mídia *
+                  </label>
+                  <Select required>
                     <SelectTrigger id="media-type">
                       <SelectValue placeholder="Escolha opção" />
                     </SelectTrigger>
@@ -201,8 +242,10 @@ export default function Component() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="category" className="text-sm font-medium">Categoria</label>
-                  <Select>
+                  <label htmlFor="category" className="text-sm font-medium">
+                    Categoria
+                  </label>
+                  <Select required>
                     <SelectTrigger id="category">
                       <SelectValue placeholder="Escolha opção" />
                     </SelectTrigger>
@@ -215,18 +258,34 @@ export default function Component() {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="author" className="text-sm font-medium">Autor</label>
-                  <Input id="author" type="text" placeholder="Digite o nome do autor" />
+                  <label htmlFor="author" className="text-sm font-medium">
+                    Autor
+                  </label>
+                  <Input
+                    id="author"
+                    type="text"
+                    placeholder="Digite o nome do autor"
+                    required
+                  />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="title" className="text-sm font-medium">Título</label>
-                  <Input id="title" type="text" placeholder="Digite o título da obra" />
+                  <label htmlFor="title" className="text-sm font-medium">
+                    Título
+                  </label>
+                  <Input
+                    id="title"
+                    type="text"
+                    placeholder="Digite o título da obra"
+                    required
+                  />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="language" className="text-sm font-medium">Idioma</label>
-                  <Select>
+                  <label htmlFor="language" className="text-sm font-medium">
+                    Idioma
+                  </label>
+                  <Select required>
                     <SelectTrigger id="language">
                       <SelectValue placeholder="Escolha opção" />
                     </SelectTrigger>
@@ -239,7 +298,10 @@ export default function Component() {
                 </div>
 
                 <div className="flex gap-2 pt-4">
-                  <Button type="submit" className="bg-[#003366] hover:bg-[#002244] flex-1">
+                  <Button
+                    type="submit"
+                    className="bg-[#003366] hover:bg-[#002244] flex-1"
+                  >
                     Pesquisar
                   </Button>
                   <Button type="reset" variant="outline" className="flex-1">
@@ -262,7 +324,7 @@ export default function Component() {
                   width={900}
                   height={150}
                   className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ${
-                    index === currentCarouselIndex ? 'opacity-100' : 'opacity-0'
+                    index === currentCarouselIndex ? "opacity-100" : "opacity-0"
                   }`}
                 />
               ))}
@@ -286,7 +348,9 @@ export default function Component() {
                     key={index}
                     onClick={() => setCurrentCarouselIndex(index)}
                     className={`w-3 h-3 rounded-full ${
-                      index === currentCarouselIndex ? 'bg-white' : 'bg-gray-400'
+                      index === currentCarouselIndex
+                        ? "bg-white"
+                        : "bg-gray-400"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
@@ -317,7 +381,11 @@ export default function Component() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {currentItems.map((item, index) => (
-                  <Link key={index} href="#" className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg group">
+                  <Link
+                    key={index}
+                    href="#"
+                    className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg group"
+                  >
                     <item.icon className="h-5 w-5 text-[#003366]" />
                     <span className="group-hover:underline">{item.text}</span>
                   </Link>
@@ -325,9 +393,10 @@ export default function Component() {
               </div>
               <div className="flex justify-end items-center mt-4 space-x-2">
                 <Button
-                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                  onClick={() =>
+                    setCurrentPage((prev) => Math.max(prev - 1, 1))
+                  }
                   disabled={currentPage === 1}
-                  
                   className="p-2"
                   variant="ghost"
                 >
@@ -335,11 +404,13 @@ export default function Component() {
                   <span className="sr-only">Página anterior</span>
                 </Button>
                 <Button
-                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                  onClick={() =>
+                    setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                  }
                   disabled={currentPage === totalPages}
                   className="p-2"
                   variant="ghost"
-                >                  
+                >
                   <ChevronRight className="h-4 w-4" />
                   <span className="sr-only">Próxima página</span>
                 </Button>
@@ -355,7 +426,13 @@ export default function Component() {
           className="bg-[#4A90E2] text-white p-6 rounded-full shadow-lg hover:bg-[#3A7BC8] transition-colors flex items-center justify-center"
           aria-label="Acessibilidade em Libras"
         >
-          <Image src="/libras.svg" alt="Acessibilidade em Libras" width={8} height={8} className="h-8 w-8" />
+          <Image
+            src="/libras.svg"
+            alt="Acessibilidade em Libras"
+            width={8}
+            height={8}
+            className="h-8 w-8"
+          />
           {/* <Accessibility className="h-8 w-8" /> */}
         </button>
         <span className="</svg>ml-4 bg-white text-[#4A90E2] px-4 py-2 rounded-full text-sm whitespace-nowrap shadow-md">
@@ -363,5 +440,5 @@ export default function Component() {
         </span>
       </div>
     </div>
-  )
+  );
 }
