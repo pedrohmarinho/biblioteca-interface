@@ -63,8 +63,34 @@ Este projeto está licenciado sob a [Licença MIT](LICENSE).
 
 Para mais informações, entre em contato:
 
-- [Seu Nome](mailto:seuemail@example.com)
-- [Seu GitHub](https://github.com/seuusuario)
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/pedrohmarinho">
+        <img src="https://github.com/pedrohmarinho.png" width="100px;" alt="Foto do Luiz Felipe"/><br>
+        <sub>
+          <b>Pedro Henrique Marinho</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/luizfelipemacedo">
+        <img src="https://github.com/luizfelipemacedo.png" width="100px;" alt="Foto do Luiz Felipe"/><br>
+        <sub>
+          <b>Luiz Felipe Macedo</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/gustavopradobr">
+        <img src="https://github.com/gustavopradobr.png" width="100px;" alt="Foto do Gustavo Prado"/><br>
+        <sub>
+          <b>Gustavo Prado</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
 ---
 
