@@ -69,7 +69,7 @@ Para mais informações, entre em contato:
       <a href="https://github.com/pedrohmarinho">
         <img src="https://github.com/pedrohmarinho.png" width="100px;" alt="Foto do Luiz Felipe"/><br>
         <sub>
-          <b>Pedro Henrique Marinho</b>
+          <b>Pedro Marinho</b>
         </sub>
       </a>
     </td>
